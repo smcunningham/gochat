@@ -27,7 +27,7 @@ type RequestPayload struct {
 
 type MessageData struct {
 	Message string `json:"message"`
-	ConnectionID string `json:"connectionId"`
+	RequestID string `json:"requestId"`
 }
 
 func HandleMessage(ctx context.Context, request events.APIGatewayWebsocketProxyRequest) (events.APIGatewayProxyResponse, error) {
@@ -52,7 +52,7 @@ func HandleMessage(ctx context.Context, request events.APIGatewayWebsocketProxyR
 	// Encode the message data with Message and Connection ID
 	messageData := &MessageData{
 		Message: requestPayload.Message,
-		ConnectionID: request.RequestContext.ConnectionID,
+		RequestID: request.RequestContext.ConnectionID,
 	}
 	jsonData, _ := json.Marshal(messageData)
 

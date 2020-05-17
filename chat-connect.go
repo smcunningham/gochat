@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+
 	"github.com/aws/aws-sdk-go/aws"
 
 	"github.com/aws/aws-sdk-go/service/dynamodb"
@@ -15,7 +16,7 @@ func main() {
 	lambda.Start(HandleConnect)
 }
 
-func HandleConnect(ctx context.Context, request events.APIGatewayWebsocketProxyRequest) (events.APIGatewayProxyResponse, error ) {
+func HandleConnect(ctx context.Context, request events.APIGatewayWebsocketProxyRequest) (events.APIGatewayProxyResponse, error) {
 	connectionItem := ConnectionItem{
 		ConnectionID: request.RequestContext.ConnectionID,
 	}

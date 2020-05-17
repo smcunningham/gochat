@@ -9,7 +9,7 @@ import (
 )
 
 type ConnectionItem struct {
-	ConnectionID string `json:"connectionID"`
+	ConnectionID string `json:"connectionId"`
 }
 
 const (
